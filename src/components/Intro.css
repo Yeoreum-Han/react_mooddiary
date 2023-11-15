@@ -1,0 +1,57 @@
+.intro{
+    width:100%;
+    height: 600px;
+}
+.introContentCover{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+.introImg{
+    width: 55%;
+    height: 80%;
+    background: url(../assets/mainImg_800.png) no-repeat 0 0;
+}
+.introText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    height: 80%;
+    margin: 0 5% 0 0;
+    font-size: 1.1vw;
+    letter-spacing: 5px;
+    line-height: 2.8vw;
+}
+.introText>h2{
+    font-size: 2vw;
+    letter-spacing: 8px;
+}
+.title{
+    font-size: 1.8vw;
+}
+.highlight{
+    font-size: 1.2vw;
+    font-style: italic;
+    text-decoration: underline;
+}
+.introButton{
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+    text-decoration: none;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    border-radius: 50px;
+    color: #333;
+}
+.introButton:hover{
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+}
