@@ -1,0 +1,8 @@
+.emotionsBox{
+    background-color: cornsilk;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
