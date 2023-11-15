@@ -1,0 +1,138 @@
+.diaryForm{
+    width: 100%;
+    height: 700px;
+}
+.writeContentCover{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+}
+.emotionsCover{
+    background-color: crimson;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
+    padding: 2.5% 0;
+    box-sizing: border-box;
+}
+.emotionsCover>p{
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
+    height: 6%;
+    text-align: center;
+    font-size: 2vw;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+.emotionsCover>div{
+    width: 100%;
+    height: 47%;
+}
+.emotionsPositive{
+    background-color: rosybrown;
+}
+.emotionsNegative{
+    background-color: greenyellow;
+    border-top: 1px solid #333;
+    box-sizing: border-box;
+}
+.formCover{
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    padding: 3% 0 3% 2.5%;
+    border-left: 1px solid #333;
+    box-sizing: border-box;
+}
+.formCover>h2{
+    /* background-color: orange; */
+    letter-spacing: 10px;
+    margin: 0;
+    height: 5%;
+    box-sizing: border-box;
+}
+.formCover>form{
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 92.5%;
+    margin: 2.5% 0 0 0;
+}
+.formCover>form>input{
+    border: none;
+    border-bottom: 1px solid #333;
+    font-size: 1.1vw;
+    height: 2vw;
+    margin: 1% 0;
+    letter-spacing: 4px;
+}
+.formCover>form>input:nth-child(1){
+    margin-top: 0;
+}
+.formCover>form>*:focus{
+    outline: none;
+}
+.formTitle{
+    width: 40%;
+    text-indent: 3%;
+}
+.formDate, .formMood{
+    width: 20%;
+    text-align: center;
+}
+.formText{
+    width: 90%;
+    height: 55%;
+    margin: 2% 0 0 0;
+    resize: none;
+    white-space: pre-wrap;
+    border: none;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    font-size: 1.1vw;
+    letter-spacing: 4px;
+    text-indent: 2%;
+}
+.formButtons{
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 90%;
+    height: 3vw;
+    margin: 4% 0 0 0;
+}
+.formButtons>div{
+    width: 12%;
+    text-align: center;
+    line-height: 3vw;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    border-radius: 50px;
+    letter-spacing: 5px;
+}
+.buttonCancel{
+    background-color: tomato;
+}
+.buttonSave{
+    background-color: #fff08A;
+    margin: 0 0 0 2%;
+}
+.buttonCancel:hover{
+    border: 1px solid tomato;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+}
+.buttonSave:hover{
+    border: 1px solid #fff08A;
+    box-sizing: border-box;
+    cursor: pointer;
+}
