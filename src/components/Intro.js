@@ -4,8 +4,7 @@ import './Intro.css';
 const Intro = () => {
 
     return (
-        <div className='intro'>
-            <div className='introContentCover'>
+            <div className='introCover'>
                 <div className='introImg'/>
                 <div className='introText'>
                     <h2> #mood, <span className='title'>감정일기</span> </h2>
@@ -16,7 +15,6 @@ const Intro = () => {
                     <p><Link to='/write' className='introButton'>일기 쓰러가기 &gt;&gt;</Link></p>
                 </div>
             </div>
-        </div>
     );
 };
 

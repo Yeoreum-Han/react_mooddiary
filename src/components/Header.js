@@ -16,7 +16,7 @@ const Header = () => {
                 to='/write' 
                 activeStyle={activeStyle}
                 className='navLinkItem'
-                >오늘의 감정</NavLink>
+                >오늘의 일기</NavLink>
                 <NavLink 
                 to='/mydiaries' 
                 activeStyle={activeStyle}
