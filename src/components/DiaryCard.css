@@ -1,0 +1,21 @@
+.diaryCardCover{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 30%;
+}
+.cardTitle{
+    background-color: red;
+}
+.cardDateMoodCover{
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+}
+.cardText{
+    background-color: olivedrab;
+}
+.cardButtonsCover{
+    background-color: purple;
+}

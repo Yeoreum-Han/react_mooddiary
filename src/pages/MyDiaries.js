@@ -1,6 +1,8 @@
+import ShowDiaries from "../components/ShowDiaries";
+
 const MyDiaries = () => {
     return (
-        <div>나의 일기</div>
+        <ShowDiaries/>
     );
 };
 
