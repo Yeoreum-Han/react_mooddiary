@@ -1,16 +1,12 @@
-.diaryForm{
-    width: 100%;
-    height: 700px;
-}
-.writeContentCover{
+.diaryFormCover{
     display: flex;
     flex-direction: row;
-    width: 95%;
-    height: 100%;
+    width: 90%;
+    height: 700px;
     margin: 0 auto;
 }
 .emotionsCover{
-    background-color: crimson;
+    /* background-color: crimson; */
     display: flex;
     flex-direction: column;
     width: 35%;
@@ -19,7 +15,7 @@
     box-sizing: border-box;
 }
 .emotionsCover>p{
-    background-color: yellow;
+    /* background-color: yellow; */
     margin: 0;
     padding: 0;
     height: 6%;
@@ -33,11 +29,11 @@
     height: 47%;
 }
 .emotionsPositive{
-    background-color: rosybrown;
+    /* background-color: rosybrown; */
 }
 .emotionsNegative{
-    background-color: greenyellow;
-    border-top: 1px solid #333;
+    /* background-color: greenyellow; */
+    border-top: 1px dotted #ccc;
     box-sizing: border-box;
 }
 .formCover{
@@ -46,7 +42,7 @@
     flex-direction: column;
     width: 65%;
     height: 100%;
-    padding: 3% 0 3% 2.5%;
+    padding: 3% 0 3% 5%;
     border-left: 1px solid #333;
     box-sizing: border-box;
 }
@@ -100,7 +96,7 @@
     letter-spacing: 4px;
     text-indent: 2%;
 }
-.formButtons{
+.formButtonsCover{
     /* background-color: orange; */
     display: flex;
     flex-direction: row;
@@ -109,7 +105,7 @@
     height: 3vw;
     margin: 4% 0 0 0;
 }
-.formButtons>div{
+.formButtonsCover>div{
     width: 12%;
     text-align: center;
     line-height: 3vw;
