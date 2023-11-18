@@ -2,6 +2,7 @@ import './DiaryForm.css';
 import Emotions from './Emotions';
 
 const DiaryForm = () => {
+
     return (
         <div className='diaryFormCover'>
             <div className='emotionsCover'>

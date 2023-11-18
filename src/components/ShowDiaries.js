@@ -5,6 +5,10 @@ const ShowDiaries = () => {
     return (
         <div className='showDiariesCover'>
             <DiaryCard/>
+            <DiaryCard/>
+            <DiaryCard/>
+            <DiaryCard/>
+            <DiaryCard/>
         </div>
     );
 };

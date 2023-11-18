@@ -1,6 +1,17 @@
 .showDiariesCover{
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
+    display: flex;
+    flex-wrap: wrap;
     width: 90%;
     height: 800px;
     margin: 0 auto;
+    padding: 3% 0;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.showDiariesCover>*{
+    margin: 0 calc(8%/3) 3% 0 ;
+}
+.showDiariesCover>*:nth-child(4n){
+    margin: 0;
 }

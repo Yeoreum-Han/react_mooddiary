@@ -1,21 +1,89 @@
 .diaryCardCover{
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     flex-direction: column;
-    width: 20%;
-    height: 30%;
+    align-items: center;
+    width: 23%;
+    height: 33%;
+    color: #333;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+.diaryCardCover>*{
+    width: 100%;
 }
 .cardTitle{
-    background-color: red;
+    /* background-color: red; */
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    font-size: 1.3vw;
+    line-height: 2.5vw;
+    letter-spacing: 3px;
+    overflow: hidden;
+    white-space: no-wrap;
+    text-overflow: ellipsis;
 }
 .cardDateMoodCover{
-    background-color: orange;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    height: 10%;
+    font-size: 1vw;
+}
+.cardDate{
+    /* background-color: orange; */
+    width: 50%;
+    text-align: center;
+}
+.cardMood{
+    /* background-color: gold; */
+    width: 50%;
+    text-align: center;
+    letter-spacing: 3px;
+}
+.cardMood>span{
+    position: relative;
+}
+.cardMood>span::before{
+    background-color: aqua;
+    content:'';
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 32%;
+    left: 0;
+    opacity: 0.3;
 }
 .cardText{
-    background-color: olivedrab;
+    /* background-color: olivedrab; */
+    width: 90%;
+    height: 65%;
+    padding: 2%;
+    box-sizing: border-box;
+    border-top: 1px solid #333;
+    letter-spacing: 3px;
+    font-size: 1vw;
+    overflow-y: scroll;
 }
 .cardButtonsCover{
-    background-color: purple;
+    /* background-color: purple; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 13%;
+}
+.buttonEdit{
+    /* background-color: aliceblue; */
+    background: url(../assets/edit16.png) no-repeat center;
+    width: 10%;
+    margin: 0 2% 0 0;
+}
+.buttonDelete{
+    /* background-color: aquamarine; */
+    background: url(../assets/delete16.png) no-repeat 0 6px;
+    width: 10%;
+}
+.buttonEdit:hover, .buttonDelete:hover{
+    cursor: pointer;
 }
