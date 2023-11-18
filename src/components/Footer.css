@@ -9,14 +9,37 @@
     box-sizing: border-box;
     font-size: 1vw;
 }
-.footer>address{
-    background-color: aliceblue;
+.addressCover{
+    /* background-color: violet; */
+    display: flex;
+    flex-direction: row;
     width: 30%;
     height: 60px;
 }
-.footer>div{
-    background-color: blanchedalmond;
-    width: 15%;
+.addressCover>address{
+    /* background-color: aliceblue; */
+    width: 60%;
+    height: 60px;
+    padding: 15px 0 0 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 0.8vw;
+    letter-spacing: 2px;
+}
+.footerLogo{
+    width: 40%;
     height: 60px;
     background: url(../assets/moodlogo_42.png) no-repeat center center;
+}
+.contectCover{
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+    margin: 5px 0 0 0;
+    font-size: 0.9vw;
+    font-style: italic;
+    letter-spacing: 0.5px;
+
 }
