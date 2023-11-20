@@ -4,7 +4,7 @@ import Emotions from './Emotions';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DiaryForm = () => {
+const DiaryForm = ({editing}) => {
 
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('');

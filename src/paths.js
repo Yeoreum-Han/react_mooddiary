@@ -1,3 +1,4 @@
+import EditDiary from "./pages/EditDiary";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import MyDiaries from "./pages/MyDiaries";
@@ -21,6 +22,10 @@ const paths = [
         path: '/login',
         element: Login,
 
+    },
+    {
+        path: '/:id/edit',
+        element: EditDiary,
     }
 ];
 
