@@ -6,6 +6,8 @@ import HomePage from './pages/HomePage';
 import WriteDiary from './pages/WriteDiary';
 import MyDiaries from './pages/MyDiaries';
 import Login from './pages/Login';
+import EditDiary from './pages/EditDiary';
+import LoadingSpinner from './components/LoadingSpinner';
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
           <Route path='/write' element={<WriteDiary/>}/>
           <Route path='/mydiaries' element={<MyDiaries/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/:id/edit' element={<EditDiary/>}/>
         </Routes>      
         <Footer/> 
       </div>

@@ -1,3 +1,4 @@
+import LoadingSpinner from "./components/LoadingSpinner";
 import EditDiary from "./pages/EditDiary";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";

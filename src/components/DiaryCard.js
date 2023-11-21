@@ -12,6 +12,7 @@ const DiaryCard = ({ id, title, date, mood, text , getPosts }) => {
                 .then(() => {
                     alert('삭제됨!');
                     getPosts();
+
                 });
         } else {
             alert('삭제안됨');
@@ -19,7 +20,7 @@ const DiaryCard = ({ id, title, date, mood, text , getPosts }) => {
     };
 
     const toEdit = (id) => {
-        navigate(`/:${id}/edit`);
+        navigate(`/${id}/edit`);
     }
 
     return (
