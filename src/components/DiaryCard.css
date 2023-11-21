@@ -49,14 +49,14 @@
     position: relative;
 }
 .cardMood>span::before{
-    background-color: aqua;
+    background-color: #fff08a;
     content:'';
     width: 100%;
     height: 50%;
     position: absolute;
     top: 32%;
     left: 0;
-    opacity: 0.3;
+    z-index: -1;
 }
 .cardText{
     /* background-color: olivedrab; */
