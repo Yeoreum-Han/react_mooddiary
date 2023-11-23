@@ -1,0 +1,11 @@
+.loginFormCover{
+    background-color: aliceblue;
+    width: 30%;
+    height: 70%;
+    position: absolute;
+    top: 60px;
+    left: 35%;
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
