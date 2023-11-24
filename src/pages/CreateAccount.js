@@ -1,6 +1,8 @@
+import AccountForm from "../components/AccountForm";
+
 const CreateAccount = () => {
     return (
-        <div>회원가입폼</div>
+        <AccountForm />
     );
 };
 
