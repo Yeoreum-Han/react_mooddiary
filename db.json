@@ -21,5 +21,13 @@
       "text": "이것저것 추가중",
       "id": 7
     }
+  ],
+  "users": [
+    {
+      "email": "summer@gmail.com",
+      "password": "$2a$10$PzRu0AZoY9CHdpye7y9muuL8TFWwAXQN0wg3UUU5iBYzp8Rq0a60C",
+      "name": "여름",
+      "id": 1
+    }
   ]
 }

@@ -1,103 +1,68 @@
-.diaryFormCover{
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    height: 700px;
-    margin: 0 auto;
-}
-.formCover{
+.accountFormCover{
     /* background-color: yellow; */
+    width: 100%;
+    height: 700px;
+}
+.accountForm{
+    /* background-color: orange; */
     display: flex;
     flex-direction: column;
-    width: 65%;
-    height: 100%;
-    padding: 3% 0 3% 5%;
-    border-left: 1px solid #333;
+    width: 40%;
+    height: 80%;
+    margin: 5% auto;
+    padding: 2% 5%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
     box-sizing: border-box;
+    box-shadow: 5px 5px 5px #ccc;
 }
-.formCover>h2{
-    /* background-color: orange; */
-    letter-spacing: 10px;
-    margin: 0;
-    height: 5%;
-    box-sizing: border-box;
-}
-.formCover>form{
+.accountFormTitle{
     /* background-color: aliceblue; */
+    width: 100%;
+    height: 10%;
+    margin: 3% 0 8% 0;
+    font-size: 2vw;
+    letter-spacing: 5px;
+}
+.accountForm>form{
+    /* background-color: olivedrab; */
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 92.5%;
-    margin: 2.5% 0 0 0;
+    height: 70%;
 }
-.formCover>form>input{
+.accountForm>form>input{
+    width: 100%;
+    height: 14%;
+    margin: 2% 0;
+    padding: 1% 4%;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #333;
-    font-size: 1.1vw;
-    height: 2vw;
-    margin: 1% 0;
-    letter-spacing: 4px;
+    box-shadow: 2px 2px 5px #ccc;
 }
-.formCover>form>input:nth-child(1){
+.accountForm>form>input:nth-child(1){
     margin-top: 0;
 }
-.formCover>form>*:focus{
-    outline: none;
-}
-.formTitle{
-    width: 40%;
-    text-indent: 3%;
-}
-.formDate, .formMood{
-    width: 20%;
-    text-align: center;
-}
-.formText{
-    width: 90%;
-    height: 55%;
-    margin: 2% 0 0 0;
-    resize: none;
-    white-space: pre-wrap;
+.accountForm>form>input:focus{
+    outline: 2px solid rgba(0, 255, 255, 0.3);
     border: none;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-    font-size: 1.1vw;
-    letter-spacing: 4px;
-    text-indent: 2%;
 }
-.formButtonsCover{
-    /* background-color: orange; */
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 90%;
-    height: 3vw;
-    margin: 4% 0 0 0;
-}
-.formButtonsCover>div{
-    width: 12%;
+.registerButton{
+    background-color: #fff94fc0;
+    width: 100%;
+    height: 14%;
+    margin: 6% 0 0 0;
+    padding: 3% 0;
     text-align: center;
-    line-height: 3vw;
-    border: 1px solid #333;
+    letter-spacing: 3px;
+    border-radius: 10px;
     box-sizing: border-box;
-    border-radius: 50px;
-    letter-spacing: 5px;
+    box-shadow: 2px 2px 5px #ccc;
 }
-.buttonCancel{
-    background-color: tomato;
-}
-.buttonSave{
-    background-color: #fff08A;
-    margin: 0 0 0 2%;
-}
-.buttonCancel:hover{
-    border: 1px solid tomato;
-    box-sizing: border-box;
-    color: #fff;
+.registerButton:hover{
     cursor: pointer;
-}
-.buttonSave:hover{
-    border: 1px solid #fff08A;
-    box-sizing: border-box;
-    cursor: pointer;
+    box-shadow: 4px 4px 5px #ccc;
 }

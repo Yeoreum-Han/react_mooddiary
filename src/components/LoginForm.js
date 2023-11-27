@@ -1,11 +1,19 @@
+import axios from 'axios';
 import './LoginForm.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const LoginForm = ({ isOpen, closeLogin }) => {
 
     const ref = useRef(null);
     const navigate = useNavigate();
+
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPwd, setLoginPwd] = useState('');
+
+    const [cookies, setCookie] = useCookies(['accessToken']);
+
 
     const modalClose = (e) => {
         if(ref.current === e.target) {
@@ -18,6 +26,14 @@ const LoginForm = ({ isOpen, closeLogin }) => {
         navigate('/createAccount');
     }
 
+    const login = () => {
+        axios.post('http://localhost:5000/login', { email : loginEmail, password : loginPwd})
+        .then((res)=>{
+            closeLogin();
+            setCookie('accessToken', res.data.accessToken);
+        });
+    }
+
     return (
         <div className='loginFormBg' style={{ display: isOpen ? 'block' : 'none' }}  onClick={(e)=>{modalClose(e)}} ref={ref}>
             <div className='loginFormCover'>
@@ -26,10 +42,10 @@ const LoginForm = ({ isOpen, closeLogin }) => {
                 </div>
                 <form className='loginForm'>
                     <div className='userInfo'>
-                        <input type='text' id='userId' placeholder='username' className='userId' />
-                        <input type='password' id='userPwd' placeholder='password' className='userPwd' />
+                        <input type='email' id='loginEmail' name='loginEmail' placeholder='userEmail' className='userId' value={loginEmail} onChange={(e)=>{setLoginEmail(e.target.value)}}/>
+                        <input type='password' id='loginPwd' name='loginPwd' placeholder='password' className='userPwd' value={loginPwd} onChange={(e)=>{setLoginPwd(e.target.value)}} />
                     </div>
-                    <div className='loginButton'>Log In</div>
+                    <div className='loginButton' onClick={login}>Log In</div>
                 </form>
                 <div className='createAccountCover'>
                     회원이 아니신가요?
