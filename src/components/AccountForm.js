@@ -2,6 +2,7 @@ import axios from 'axios';
 import './AccountForm.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 
 const AccountForm = () => {
@@ -13,6 +14,8 @@ const AccountForm = () => {
 
     const navigate = useNavigate();
 
+    const [cookies, setCookie] = useCookies();
+
 
     const onCreate = () => {    
         if(userName === '' || userEmail === '' || userPwd === '' || checkPwd === '' ){
@@ -21,7 +24,8 @@ const AccountForm = () => {
             axios.post('http://localhost:5000/users', { 
                 name : userName , email : userEmail, password : userPwd 
             })
-            .then(()=>{
+            .then((res)=>{
+                setCookie('accessToken', res.data.accessToken);
                 navigate('/');   
             });
         }
