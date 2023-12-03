@@ -9,17 +9,31 @@ const LoginForm = ({ isOpen, closeLogin }) => {
 
     const ref = useRef(null);
     const navigate = useNavigate();
-
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPwd, setLoginPwd] = useState('');
     const [userInfo, setUserInfo] = useState({});
 
     const [cookies, setCookie] = useCookies();
 
+    const [loginInput, setLoginInput] = useState({
+        loginEmail: '',
+        loginPwd: '',
+    });
+
+    const [isLoginValid, setIsLoginValid] = useState({
+        isLoginEmailV: false,
+        isLoginPwdV: false,
+    });
 
     const modalClose = (e) => {
         if (ref.current === e.target) {
             closeLogin();
+            setLoginInput({
+                loginEmail: '',
+                loginPwd: '',
+            });
+            setIsLoginValid({
+                isLoginEmailV: false,
+                isLoginPwdV: false,        
+            });
         }
     };
 
@@ -39,24 +53,45 @@ const LoginForm = ({ isOpen, closeLogin }) => {
         });
     };
 
+    const regCheckEmail = (e) => {
+        const regex = /[\w\-\.]+\@[\w\-]+\.[\w]/g;
+        const validEmail = regex.test(e.target.value);
+        setIsLoginValid({ ...isLoginValid, isLoginEmailV: validEmail });
+        setLoginInput({ ...loginInput, loginEmail: e.target.value });
+        if (e.target.value === '') {
+            setIsLoginValid({ ...isLoginValid, isLoginEmailV: false });
+        }
+    }
+
+    const regCheckPwd = (e) => {
+        setIsLoginValid({ ...isLoginValid, isLoginPwdV: true });
+        setLoginInput({ ...loginInput, loginPwd: e.target.value });
+        if (e.target.value === '') {
+            setIsLoginValid({ ...isLoginValid, isLoginPwdV: false });
+        }
+    }
 
     const login = async () => {
         //bcyrpt.compare로 비밀번호 비교해서 t/f return
-        const validPwd = await bcyrpt.compare(loginPwd, userInfo.password);
-
-        if (loginEmail === userInfo.email) {
-            if(validPwd){
-                axios.post('http://localhost:5000/login', { email: loginEmail, password: loginPwd })
-                    .then((res) => {
-                        closeLogin();
-                        setCookie('accessToken', res.data.accessToken);
-                    });
-            } else {
-                alert('비밀번호가 일치하지 않습니다');
-            }
-        } else {
-            alert('이메일 또는 비밀번호를 확인해주세요');
+        const validPwd = await bcyrpt.compare(loginInput.loginPwd, userInfo.password);
+        
+        if (!isLoginValid.isLoginEmailV || !isLoginValid.isLoginPwdV) {
+            alert('이메일 또는 비밀번호를 확인하세요');
+            return;
         }
+        if (loginInput.loginEmail !== userInfo.email) {
+            alert('존재하지 않는 이메일입니다');
+            return;
+        }
+        if (!validPwd) {
+            alert('비밀번호가 일치하지 않습니다.');
+            return;
+        }
+        axios.post('http://localhost:5000/login', { email: loginInput.loginEmail, password: loginInput.loginPwd })
+            .then((res) => {
+                closeLogin();
+                setCookie('accessToken', res.data.accessToken);
+            });
     }
 
     return (
@@ -67,8 +102,8 @@ const LoginForm = ({ isOpen, closeLogin }) => {
                 </div>
                 <form className='loginForm'>
                     <div className='userInfo'>
-                        <input type='email' id='loginEmail' name='loginEmail' placeholder='userEmail' className='userId' value={loginEmail} onChange={(e) => { setLoginEmail(e.target.value) }} />
-                        <input type='password' id='loginPwd' name='loginPwd' placeholder='password' className='userPwd' value={loginPwd} onChange={(e) => { setLoginPwd(e.target.value) }} />
+                        <input type='email' id='loginEmail' name='loginEmail' placeholder='userEmail' className={isLoginValid.isLoginEmailV ? 'valid' : 'invalid'} value={loginInput.loginEmail} onChange={(e) => { regCheckEmail(e) }} />
+                        <input type='password' id='loginPwd' name='loginPwd' placeholder='password' className={isLoginValid.isLoginPwdV ? 'valid' : 'invalid'} value={loginInput.loginPwd} onChange={(e) => { regCheckPwd(e) }} />
                     </div>
                     <div className='loginButton' onClick={login}>Log In</div>
                 </form>

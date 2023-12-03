@@ -48,7 +48,7 @@
     padding: 0 10%;
     box-sizing: border-box;
 }
-.userId, .userPwd{
+.userInfo>input{
     width: 100%;
     height: calc(88%/2);
     padding: 1% 4%;
@@ -58,13 +58,22 @@
     border-radius: 10px;
     box-shadow: 2px 2px 5px #ccc;
 }
-.userId:focus, .userPwd:focus{
+/* .userId:focus, .userPwd:focus{
     outline: none;
+} */
+.invalid{
+    outline: 2px solid rgba(255, 0, 0, 0.3);
+    border: none;
 }
-.userId{
+.valid{
+    outline: 2px solid rgba(0, 255, 255, 0.3);
+    border: none;
+
+}
+.userInfo>input:nth-child(1){
     margin: 3% 0;
 }
-.userPwd{
+.userInfo>input:nth-child(2){
     margin: 1% 0 5% 0;
 }
 .loginButton{
