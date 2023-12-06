@@ -1,4 +1,31 @@
-.header{
+@media screen and (max-width:767px) {
+    .navLinkItem{
+        width: 20%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: no-wrap;
+        font-size: 1.2vw;
+    }
+    .navLinkItem:nth-child(1) {
+        margin: 0;
+        padding: 10px 0 0 0;
+        box-sizing: border-box;
+    }    
+}
+
+@media screen and (min-width:768px) {
+    .navLinkItem{
+        width: 15%;
+        font-size: 1.1vw;
+    }
+    .navLinkItem:nth-child(1){
+        margin: 0 20% 0 5%;
+        padding: 10px 0 0 0;
+        box-sizing: border-box;
+    }
+}
+
+.header {
     display: flex;
     width: 100%;
     height: 60px;
@@ -6,27 +33,31 @@
     box-sizing: border-box;
     font-size: 1vw;
 }
-.navBar{
+
+.navBar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 80%;
-    height: 60px;
+    height: 100%;
     margin: 0 auto;
 }
-.navLinkItem{
-    width: 15%;
-    height: 60px;
+
+.navLinkItem {
+    /* width: 15%; */
+    height: 100%;
     text-align: center;
     line-height: 60px;
     letter-spacing: 3px;
     color: #333;
     text-decoration: none;
 }
-.navLinkItem:hover{
+
+.navLinkItem:hover {
     cursor: pointer;
 }
-.navLinkItem:nth-child(1){
-    margin: 0 20% 0 5%;
-    background: url(../assets/moodlogo_42.png) no-repeat center center;
+
+.navLinkItem:nth-child(1)>img{
+    width: 100%;
 }

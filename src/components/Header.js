@@ -3,6 +3,7 @@ import './Header.css';
 import { useEffect, useState } from 'react';
 import LoginForm from './LoginForm';
 import { useCookies } from 'react-cookie';
+import logo from '../assets/moodlogo_42.png';
 
 const Header = () => {
 
@@ -64,7 +65,9 @@ const Header = () => {
                 <div className='navBar'>
                     <Link
                         to='/'
-                        className='navLinkItem' />
+                        className='navLinkItem'>
+                            <img src={logo} alt='로고이미지'/>
+                        </Link>
                     <NavLink
                         to='/write'
                         style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
