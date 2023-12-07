@@ -20,7 +20,7 @@
     }
     .navLinkItem:nth-child(1){
         margin: 0 20% 0 5%;
-        padding: 10px 0 0 0;
+        padding: 5px 0 0 0;
         box-sizing: border-box;
     }
 }

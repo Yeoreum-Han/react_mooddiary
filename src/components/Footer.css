@@ -1,3 +1,46 @@
+@media screen and (max-width:767px) {
+    .addressCover{
+        width: 60%;
+        height: 40%;
+    }
+    .footerLogo>img{
+        width: 90%;
+    }
+    .addressCover>address{
+        padding: 8px 0 0 0;
+        font-size: 1.1vw;
+        letter-spacing: 2px;
+        line-height: 2vw;
+    }    
+    .contectCover{
+        width: 50%;
+        font-size: 1.7vw;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .footer{
+        height: 120px;
+    }
+    .addressCover{
+        width: 30%;
+        height: 35%;
+    }
+    .footerLogo>img{
+        width: 80%;
+    }
+    .addressCover>address{
+        padding: 5px 0 0 0;
+        font-size: 0.8vw;
+        letter-spacing: 2px;
+    }  
+    .contectCover{
+        width: 25%;
+        font-size: 0.9vw;
+        margin: 5px 0 0 0;
+    }
+}
+
 .footer{
     display: flex;
     flex-direction: column;
@@ -10,35 +53,26 @@
     font-size: 1vw;
 }
 .addressCover{
-    /* background-color: violet; */
     display: flex;
     flex-direction: row;
-    width: 30%;
-    height: 60px;
 }
 .addressCover>address{
-    /* background-color: aliceblue; */
     width: 60%;
-    height: 60px;
-    padding: 15px 0 0 0;
+    height: 100%;
     box-sizing: border-box;
     text-align: center;
-    font-size: 0.8vw;
-    letter-spacing: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .footerLogo{
     width: 40%;
-    height: 60px;
-    background: url(../assets/moodlogo_42.png) no-repeat center center;
+    height: 100%;
 }
 .contectCover{
-    /* background-color: orange; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 25%;
-    margin: 5px 0 0 0;
-    font-size: 0.9vw;
     font-style: italic;
     letter-spacing: 0.5px;
 

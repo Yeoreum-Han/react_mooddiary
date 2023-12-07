@@ -3,6 +3,7 @@ import './Intro.css';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import LoginForm from './LoginForm';
+import introImg from '../assets/mainImg_800.png';
 
 
 const Intro = () => {
@@ -45,7 +46,9 @@ const Intro = () => {
                 <LoginForm isOpen={loginOpen} closeLogin={closeLogin} />
             </div>
             <div className='introCover'>
-                <div className='introImg' />
+                <div className='introImg'>
+                    <img src={introImg} alt='인트로이미지' />
+                </div>
                 <div className='introText'>
                     <h2> #mood, <span className='title'>감정일기</span> </h2>
                     <p>오늘 어떤 기분이었지? 나는 그때 왜 화났지? <br />
