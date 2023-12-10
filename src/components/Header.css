@@ -4,7 +4,7 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: no-wrap;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
     }
     .navLinkItem:nth-child(1) {
         margin: 0;
