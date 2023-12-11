@@ -3,7 +3,6 @@ import './Header.css';
 import { useEffect, useState } from 'react';
 import LoginForm from './LoginForm';
 import { useCookies } from 'react-cookie';
-import logo from '../assets/moodlogo_42.png';
 
 const Header = () => {
 
@@ -14,6 +13,8 @@ const Header = () => {
     const [cookies, removeCookie] = useCookies();
 
     const navigate = useNavigate();
+
+    const logo = process.env.PUBLIC_URL;
 
     const openLogin = () => {
         setLoginOpen(true);
@@ -66,7 +67,7 @@ const Header = () => {
                     <Link
                         to='/'
                         className='navLinkItem'>
-                            <img src={logo} alt='로고이미지'/>
+                            <img src={`${logo}/images/moodlogo_42.png`} alt='로고이미지'/>
                         </Link>
                     <NavLink
                         to='/write'

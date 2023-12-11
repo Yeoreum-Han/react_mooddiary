@@ -3,7 +3,6 @@ import './Intro.css';
 import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import LoginForm from './LoginForm';
-import introImg from '../assets/mainImg_800.png';
 
 
 const Intro = () => {
@@ -11,6 +10,8 @@ const Intro = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [cookies, removeCookie] = useCookies();
     const navigate = useNavigate();
+
+    const introImg = process.env.PUBLIC_URL;
 
     const closeLogin = () => {
         setLoginOpen(false);
@@ -47,7 +48,7 @@ const Intro = () => {
             </div>
             <div className='introCover'>
                 <div className='introImg'>
-                    <img src={introImg} alt='인트로이미지' />
+                    <img src={`${introImg}/images/mainImg_800.png`} alt='인트로이미지' />
                 </div>
                 <div className='introText'>
                     <h2> #mood, <span className='title'>감정일기</span> </h2>
