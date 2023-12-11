@@ -15,16 +15,20 @@
 }
 
 .showDiariesCover{
-    /* background-color: sandybrown; */
     display: flex;
     flex-wrap: wrap;
     width: 90%;
     height: 800px;
     margin: 0 auto;
-    padding: 3% 0;
+    padding: 2% 0 2% 0;
     box-sizing: border-box;
     overflow-y: scroll;
 }
+.showDiariesCover::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+
 .showDiariesCover>*{
     margin: 0 calc(8%/3) 3% 0 ;
 }
