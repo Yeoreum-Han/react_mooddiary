@@ -1,3 +1,19 @@
+@media screen and (max-width:467px) {
+    .showDiariesCover>*:nth-child(2n){
+        margin: 0;
+    }
+}
+@media screen and (min-width:468px) and (max-width: 767px) {
+    .showDiariesCover>*:nth-child(3n){
+        margin: 0;
+    }
+}
+@media screen and (min-width: 768px) {
+    .showDiariesCover>*:nth-child(4n){
+        margin: 0;
+    }
+}
+
 .showDiariesCover{
     /* background-color: sandybrown; */
     display: flex;
@@ -12,6 +28,4 @@
 .showDiariesCover>*{
     margin: 0 calc(8%/3) 3% 0 ;
 }
-.showDiariesCover>*:nth-child(4n){
-    margin: 0;
-}
+

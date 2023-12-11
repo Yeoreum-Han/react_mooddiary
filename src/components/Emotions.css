@@ -1,20 +1,48 @@
+@media screen and (max-width:467px) {
+    .emotionsBox{
+        height: 100%;
+        padding: 1%;
+    }
+    .emo{
+        height: 25%;
+        font-size: 1.8vw;
+        line-height: 8vw;
+    }
+}
+@media screen and (min-width:468px) and (max-width:767px) {
+    .emotionsBox{
+        height: 100%;
+        padding: 0;
+    }
+    .emo{
+        height: 15%;
+        font-size: 1.2vw;
+        line-height: 4vw;
+    }
+
+}
+@media screen and (min-width:768px) {
+    .emotionsBox{
+        height: 100%;
+        padding: 5%;
+    }
+    .emo{
+        height: 25%;
+        font-size: 1vw;
+        line-height: 4vw;
+    }
+}
 .emotionsBox{
-    /* background-color: cornsilk; */
     display: flex;
     flex-wrap: wrap;
     width: 90%;
-    height: 100%;
     margin: 0 auto;
-    padding: 5%;
     box-sizing: border-box;
 }
 .emo{
     box-sizing: border-box;
     width: 25%;
-    height: 25%;
     text-align: center;
-    line-height: 4vw;
-    font-size: 1vw;
 }
 .emo>span{
     position: relative;

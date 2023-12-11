@@ -20,12 +20,26 @@
       "mood": "좋다",
       "text": "이것저것 추가중",
       "id": 7
+    },
+    {
+      "title": "asdfdf",
+      "date": "2023-12-11",
+      "mood": "sdfdf",
+      "text": "sdfsdfsd",
+      "id": 8
+    },
+    {
+      "title": "asdfsdf",
+      "date": "2023-12-11",
+      "mood": "qwer",
+      "text": "asdfwetwer",
+      "id": 9
     }
   ],
   "users": [
     {
       "email": "summer@gmail.com",
-      "password": "$2a$10$Cyl9UQgOsRTN7wx.Y4M0.eCcT2psPh0mkf.Ps37rtA.zQQSpO/Wna",
+      "password": "$2a$10$2336WkX7A8JZamkp6YSSdec7L/SNrPOAEnVRTh54ziw0kZ1CHwx/m",
       "name": "여름",
       "id": 1
     }

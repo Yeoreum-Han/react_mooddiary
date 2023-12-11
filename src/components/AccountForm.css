@@ -1,3 +1,60 @@
+@media screen and (max-width:467px){
+    .accountForm{
+        width: 70%;
+    } 
+    .accountFormTitle{
+        margin: 30px 0 10px 0;
+        font-size: 3vw;
+    }
+    .accountForm>form>input{
+        height: 12%;
+    }
+    .registerButton{
+        height: 12%;
+        margin: 20% 0 0 0;
+        padding: 13px 0 0 0;
+        font-size: 3vw;
+    }
+}
+@media screen and (min-width:468px) and (max-width:767px) {
+    .accountForm{
+        width: 70%;
+    } 
+    .accountFormTitle{
+        margin: 30px 0 10px 0;
+        font-size: 3vw;
+    }
+    .accountForm>form>input{
+        height: 14%;
+    }
+
+    .registerButton{
+        height: 14%;
+        margin: 6% 0 0 0;
+        padding: 15px 0 0 0;
+        font-size: 2vw;
+    }
+    
+}
+@media screen and (min-width:768px){
+    .accountForm{
+        width: 40%;
+    } 
+    .accountFormTitle{
+        margin: 3% 0 8% 0;
+        font-size: 2vw;
+    }
+    .accountForm>form>input{
+        height: 14%;
+    }
+    .registerButton{
+        height: 14%;
+        margin: 6% 0 0 0;
+        padding: 3% 0;
+    }
+    
+}
+
 .accountFormCover{
     /* background-color: yellow; */
     width: 100%;
@@ -7,7 +64,6 @@
     /* background-color: orange; */
     display: flex;
     flex-direction: column;
-    width: 40%;
     height: 80%;
     margin: 5% auto;
     padding: 2% 5%;
@@ -20,8 +76,6 @@
     /* background-color: aliceblue; */
     width: 100%;
     height: 10%;
-    margin: 3% 0 8% 0;
-    font-size: 2vw;
     letter-spacing: 5px;
 }
 .accountForm>form{
@@ -33,7 +87,6 @@
 }
 .accountForm>form>input{
     width: 100%;
-    height: 14%;
     margin: 2% 0;
     padding: 1% 4%;
     letter-spacing: 2px;
@@ -58,9 +111,6 @@
 .registerButton{
     background-color: #fff94fc0;
     width: 100%;
-    height: 14%;
-    margin: 6% 0 0 0;
-    padding: 3% 0;
     text-align: center;
     letter-spacing: 3px;
     border-radius: 10px;
