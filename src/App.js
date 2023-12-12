@@ -14,7 +14,7 @@ function App() {
   return (
     <CookiesProvider defaultSetOptions={{path : '/'}}>
       {/* 모든 주소에서 사용하도록 defaultSetOptions */}
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Header />
           <Routes>

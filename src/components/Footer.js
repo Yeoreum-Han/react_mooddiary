@@ -2,7 +2,6 @@ import './Footer.css';
 
 const Footer = () => {
     const footerLogo = process.env.PUBLIC_URL;
-
     return (
         <div className="footer">
             <div className='addressCover'>

@@ -33,9 +33,9 @@ const Header = () => {
     const checkLogin = () => {
         const token = cookies.accessToken;
 
-        if( !token || token ==='undefined') {
+        if (!token || token === 'undefined') {
             setIsLoggedIn(false);
-        } else{            
+        } else {
             setIsLoggedIn(true);
         }
 
@@ -44,7 +44,7 @@ const Header = () => {
     //로그인 상태일 때만 글 작성하도록. 로그인 안 되어있으면 페이지이동 방지. 
     const needLogin = (e) => {
         checkLogin();
-        if(!isLoggedIn) {
+        if (!isLoggedIn) {
             e.preventDefault();
             setLoginOpen(true);
         } else {
@@ -53,9 +53,9 @@ const Header = () => {
     }
 
     //처음 렌더시부터 로그인상태 확인, 토큰값 변경에 따라 리렌더링
-    useEffect(()=>{
+    useEffect(() => {
         checkLogin();
-    },[cookies.accessToken]);
+    }, [cookies.accessToken]);
 
     return (
         <div className='headerCover'>
@@ -67,19 +67,19 @@ const Header = () => {
                     <Link
                         to='/'
                         className='navLinkItem'>
-                            <img src={`${logo}/images/moodlogo_42.png`} alt='로고이미지'/>
-                        </Link>
+                        <img src={`${logo}/images/moodlogo_42.png`} alt='상단로고' />
+                    </Link>
                     <NavLink
                         to='/write'
                         style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
-                        className='navLinkItem' onClick={(e)=>{needLogin(e)}}
+                        className='navLinkItem' onClick={(e) => { needLogin(e) }}
                     >오늘의 일기</NavLink>
                     <NavLink
                         to='/mydiaries'
                         style={({ isActive }) => ({ fontWeight: isActive ? 'bold' : 'normal' })}
                         className='navLinkItem'
                     >나의 한 달</NavLink>
-                    { isLoggedIn ? <div className='navLinkItem' onClick={logout}>로그아웃</div> :<div
+                    {isLoggedIn ? <div className='navLinkItem' onClick={logout}>로그아웃</div> : <div
                         className='navLinkItem'
                         onClick={openLogin}
                     >로그인</div>}
