@@ -50,7 +50,6 @@ const LoginForm = ({ isOpen, closeLogin }) => {
         await axios.get('https://marsh-harsh-microraptor.glitch.me/users', {
         }).then((res) => {
             setUserInfo(res.data[0]);
-            console.log('axios get 완료');
         });
     };
 
