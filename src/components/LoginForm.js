@@ -46,10 +46,11 @@ const LoginForm = ({ isOpen, closeLogin }) => {
         getUserInfo()
     }, []);
 
-    const getUserInfo = () => {
-        axios.get('http://localhost:5000/users', {
+    const getUserInfo = async () => {
+        await axios.get('https://marsh-harsh-microraptor.glitch.me/users', {
         }).then((res) => {
             setUserInfo(res.data[0]);
+            console.log('axios get 완료');
         });
     };
 
@@ -87,7 +88,7 @@ const LoginForm = ({ isOpen, closeLogin }) => {
             alert('비밀번호가 일치하지 않습니다.');
             return;
         }
-        axios.post('http://localhost:5000/login', { email: loginInput.loginEmail, password: loginInput.loginPwd })
+        await axios.post('https://marsh-harsh-microraptor.glitch.me/login', { email: loginInput.loginEmail, password: loginInput.loginPwd })
             .then((res) => {
                 closeLogin();
                 setCookie('accessToken', res.data.accessToken);

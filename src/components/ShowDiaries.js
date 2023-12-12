@@ -16,7 +16,7 @@ const ShowDiaries = () => {
     
     
     const getPosts = () => {
-        axios.get('http://localhost:5000/posts').then((res) => {
+        axios.get('https://marsh-harsh-microraptor.glitch.me/posts').then((res) => {
             setPosts(res.data);
             setLoading(false);
         });

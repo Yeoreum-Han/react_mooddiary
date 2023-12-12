@@ -24,7 +24,7 @@ const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
     
     const getConfirm = (id) => {
         if (window.confirm('삭제하겠습니까?')) {
-            axios.delete(`http://localhost:5000/posts/${id}`)
+            axios.delete(`https://marsh-harsh-microraptor.glitch.me/${id}`)
                 .then(() => {
                     alert('삭제됨!');
                     getPosts();

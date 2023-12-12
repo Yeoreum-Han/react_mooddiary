@@ -72,7 +72,7 @@ const AccountForm = () => {
             alert('비밀번호가 일치하지 않습니다');
             return;
         }
-        axios.post('http://localhost:5000/users', {
+        axios.post('https://marsh-harsh-microraptor.glitch.me/users', {
             name: inputValue.userName,
             email: inputValue.userEmail,
             password: inputValue.userPwd,

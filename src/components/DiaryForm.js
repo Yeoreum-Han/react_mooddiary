@@ -21,12 +21,12 @@ const DiaryForm = ({editing}) => {
 
     const onSubmit = () => {
         if(editing){
-            axios.patch(`http://localhost:5000/posts/${id}`,{ title, date, mood, text })
+            axios.patch(`https://marsh-harsh-microraptor.glitch.me/${id}`,{ title, date, mood, text })
             .then(()=>{
                 navigate('/mydiaries');
             });
         } else {
-            axios.post('http://localhost:5000/posts', { title, date, mood, text })
+            axios.post('https://marsh-harsh-microraptor.glitch.me/posts', { title, date, mood, text })
             .then(() => {
                 navigate('/mydiaries');
             });
@@ -36,7 +36,7 @@ const DiaryForm = ({editing}) => {
 
     useEffect(()=>{
         if(editing) {
-            axios.get(`http://localhost:5000/posts/${id}`)
+            axios.get(`https://marsh-harsh-microraptor.glitch.me/posts/${id}`)
             .then((res)=>{
                 setTitle(res.data.title);
                 setDate(res.data.date);
