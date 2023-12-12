@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "bcryptjs": "^2.4.3",
+    "gh-pages": "^6.1.0",
     "react": "^18.2.0",
     "react-cookie": "^6.1.1",
     "react-dom": "^18.2.0",
@@ -20,7 +21,10 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "server": "json-server-auth --watch db.json --port 5000"
+    "server": "json-server-auth --watch db.json --port 5000",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "homepage": "https://yeoreum-han.github.io/react_mooddiary/"
   },
   "eslintConfig": {
     "extends": [
