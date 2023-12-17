@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "bcryptjs": "^2.4.3",
+    "firebase": "^10.7.1",
     "gh-pages": "^6.1.0",
     "react": "^18.2.0",
     "react-cookie": "^6.1.1",
@@ -25,7 +26,7 @@
     "server": "json-server-auth --watch db.json --port 5000",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-    },
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
