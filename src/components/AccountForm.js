@@ -1,9 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
 import './AccountForm.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const AccountForm = () => {
 
@@ -64,25 +64,47 @@ const AccountForm = () => {
     }
 
     const onCreate = () => {
-        if (!isInputValid.isUserNameV || !isInputValid.isUserEmailV || !isInputValid.isUserPwdV) {
-            alert('입력창을 확인해주세요');
-            return;
-        }
-        if (inputValue.userPwd !== inputValue.checkPwd) {
-            alert('비밀번호가 일치하지 않습니다');
-            return;
-        }
-        axios.post('https://marsh-harsh-microraptor.glitch.me/users', {
-            name: inputValue.userName,
-            email: inputValue.userEmail,
-            password: inputValue.userPwd,
-        })
-            .then((res) => {
-                setCookie('accessToken', res.data.accessToken);
-                navigate('/');
+        // if (!isInputValid.isUserNameV || !isInputValid.isUserEmailV || !isInputValid.isUserPwdV) {
+        //     alert('입력창을 확인해주세요');
+        //     return;
+        // }
+        // if (inputValue.userPwd !== inputValue.checkPwd) {
+        //     alert('비밀번호가 일치하지 않습니다');
+        //     return;
+        // }
+        // axios.post('https://marsh-harsh-microraptor.glitch.me/users', {
+        //     name: inputValue.userName,
+        //     email: inputValue.userEmail,
+        //     password: inputValue.userPwd,
+        // })
+        //     .then((res) => {
+        //         setCookie('accessToken', res.data.accessToken);
+        //         navigate('/');
+        //     });
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, inputValue.userEmail, inputValue.userPwd)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                setInputValue({
+                    userName: '',
+                    userEmail: '',
+                    userPwd: '',
+                    checkPwd: ''
+                });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log('errorCode : ', errorCode, `\n`, 'errorMessage : ', errorMessage);
+                alert('회원가입에 실패했습니다.', `\n`, '다시 시도해주세요');
             });
-
-    };
+            // auth/missing-password
+            // auth/invalid-email
+            // auth/email-already-in-use
+            // auth/weak-password
+        };
 
     return (
         <div className='accountFormCover'>
