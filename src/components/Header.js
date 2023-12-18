@@ -3,6 +3,7 @@ import './Header.css';
 import { useEffect, useState } from 'react';
 import LoginForm from './LoginForm';
 import { useCookies } from 'react-cookie';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Header = () => {
 
@@ -16,6 +17,8 @@ const Header = () => {
 
     const logo = process.env.PUBLIC_URL;
 
+    const auth = getAuth();
+
     const openLogin = () => {
         setLoginOpen(true);
     }
@@ -23,12 +26,22 @@ const Header = () => {
         setLoginOpen(false);
     }
     const logout = () => {
-        removeCookie('accessToken');
+        // removeCookie('accessToken');
         setIsLoggedIn(false);
         alert('로그아웃 되었습니다.');
         navigate('/');
     }
 
+    const checkAuthState = () => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsLoggedIn(true);
+                closeLogin();
+            } else {
+                logout();
+            }
+        })
+    };
     //accessToken유무에 따라 로그인 상태 t/f 변경
     const checkLogin = () => {
         const token = cookies.accessToken;
