@@ -2,26 +2,30 @@ import axios from 'axios';
 import './DiaryCard.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
 
     const navigate = useNavigate();
 
-    const [cookies] = useCookies();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    useEffect(()=>{
-        const token = cookies.accessToken;
+    const auth = getAuth();
 
-        if( !token || token ==='undefined') {
-            setIsLoggedIn(false);
-        } else{            
-            setIsLoggedIn(true);
-        }
-    },[cookies.accessToken]);
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+        })
 
-    
+
+    }, []);
+
+
     const getConfirm = (id) => {
         if (window.confirm('삭제하겠습니까?')) {
             axios.delete(`https://marsh-harsh-microraptor.glitch.me/${id}`)
@@ -50,7 +54,7 @@ const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
                 <div className='buttonEdit' onClick={() => toEdit(id)} />
                 <div className='buttonDelete' onClick={() => getConfirm(id)} />
             </div>
-            }        
+            }
         </div>
     );
 };

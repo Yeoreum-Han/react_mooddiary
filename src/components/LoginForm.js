@@ -1,20 +1,12 @@
-import axios from 'axios';
 import './LoginForm.css';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useCookies } from 'react-cookie';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// const bcyrpt = require('bcryptjs');
+import { browserSessionPersistence, getAuth, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginForm = ({ isOpen, closeLogin }) => {
 
     const ref = useRef(null);
     const navigate = useNavigate();
-    // const [userInfo, setUserInfo] = useState({});
-
-    // const [cookies, setCookie] = useCookies();
-
     const [loginInput, setLoginInput] = useState({
         loginEmail: '',
         loginPwd: '',
@@ -44,17 +36,6 @@ const LoginForm = ({ isOpen, closeLogin }) => {
         navigate('/createAccount');
     }
 
-    // useEffect(() => {
-    //     getUserInfo()
-    // }, []);
-
-    // const getUserInfo = async () => {
-    //     await axios.get('https://marsh-harsh-microraptor.glitch.me/users', {
-    //     }).then((res) => {
-    //         setUserInfo(res.data[0]);
-    //     });
-    // };
-
     const regCheckEmail = (e) => {
         const regex = /[\w\-.]+@[\w-]+\.[\w]/g;
         const validEmail = regex.test(e.target.value);
@@ -74,8 +55,6 @@ const LoginForm = ({ isOpen, closeLogin }) => {
     }
 
     const login = () => {
-        //bcyrpt.compare로 비밀번호 비교해서 t/f return
-        // const validPwd = await bcyrpt.compare(loginInput.loginPwd, userInfo.password);
 
         const auth = getAuth();
         signInWithEmailAndPassword(auth, loginInput.loginEmail, loginInput.loginPwd)
@@ -85,6 +64,15 @@ const LoginForm = ({ isOpen, closeLogin }) => {
                     loginEmail: '',
                     loginPwd: '',
                 });
+                setPersistence(auth, browserSessionPersistence)
+                    .then(() => {
+                        return signInWithEmailAndPassword(auth, loginInput.loginEmail, loginInput.loginPwd);
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorCode, `\n`, errorMessage);
+                    });
                 closeLogin();
             })
             .catch((error) => {
