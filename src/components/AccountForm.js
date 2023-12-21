@@ -1,9 +1,7 @@
-// import axios from 'axios';
 import './AccountForm.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useCookies } from 'react-cookie';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const AccountForm = () => {
 
@@ -23,11 +21,10 @@ const AccountForm = () => {
 
     const navigate = useNavigate();
 
-    // const [cookies, setCookie] = useCookies();
 
     const inputRegexs = {
         nameRegex: /[a-zA-Z가-힣\s]{1,30}/,
-        emailRegex: /[\w\-\.]+\@[\w\-]+\.[\w]/g,
+        emailRegex: /[\w\-.]+@[\w-]+\.[\w]/g,
     };
 
     const regCheckEmail = (e) => {
@@ -68,8 +65,7 @@ const AccountForm = () => {
 
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, inputValue.userEmail, inputValue.userPwd)
-            .then((userCredential) => {
-                const user = userCredential.user;
+            .then(() => {
                 setInputValue({
                     userName: '',
                     userEmail: '',

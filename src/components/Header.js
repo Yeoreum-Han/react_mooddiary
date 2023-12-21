@@ -29,17 +29,6 @@ const Header = () => {
         navigate('/');
     }
 
-    const checkAuthState = () => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setIsLoggedIn(true);
-            } else {
-                setIsLoggedIn(false);
-            }
-        })
-
-    }
-
     //로그인 상태일 때만 글 작성하도록. 로그인 안 되어있으면 페이지이동 방지. 
     const needLogin = (e) => {
         if (!isLoggedIn) {
@@ -52,7 +41,13 @@ const Header = () => {
 
     //처음 렌더시부터 로그인상태 확인, 상태변경에 따라 리렌더링
     useEffect(() => {
-        checkAuthState();
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setIsLoggedIn(true);
+            } else {
+                setIsLoggedIn(false);
+            }
+        })
     }, [isLoggedIn]);
 
     return (

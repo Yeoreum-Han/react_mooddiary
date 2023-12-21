@@ -12,7 +12,7 @@ const Emotions = (props) => {
                 {props.emotions === 'positive' ?
                     emos.map(emo => {
                         return (
-                            <div className='emo'>
+                            <div className='emo' key={emo}>
                                 <span>{emo}</span>
                             </div>
                         );
@@ -20,7 +20,7 @@ const Emotions = (props) => {
                     :
                     emosNeg.map(emo => {
                         return (
-                            <div className='emo'>
+                            <div className='emo' key={emo}>
                                 <span>{emo}</span>
                             </div>
                         );

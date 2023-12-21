@@ -1,8 +1,10 @@
-import axios from 'axios';
 import './DiaryCard.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+
 
 
 const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
@@ -13,6 +15,7 @@ const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
 
     const auth = getAuth();
 
+
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -20,21 +23,18 @@ const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
             } else {
                 setIsLoggedIn(false);
             }
-        })
-
+        });
 
     }, []);
 
 
-    const getConfirm = (id) => {
+    const getConfirm = async (id) => {
         if (window.confirm('삭제하겠습니까?')) {
-            axios.delete(`https://marsh-harsh-microraptor.glitch.me/${id}`)
-                .then(() => {
-                    alert('삭제됨!');
-                    getPosts();
-                });
+            await deleteDoc(doc(db, 'posts', id));
+            alert('삭제됐습니다');
+            getPosts();
         } else {
-            alert('삭제안됨');
+            alert('취소했습니다');
         };
     };
 
@@ -43,7 +43,7 @@ const DiaryCard = ({ id, title, date, mood, text, getPosts }) => {
     }
 
     return (
-        <div className="diaryCardCover">
+        <div className='diaryCardCover'>
             <div className='cardTitle'>{title}</div>
             <div className='cardDateMoodCover'>
                 <div className='cardDate'>{date}</div>
