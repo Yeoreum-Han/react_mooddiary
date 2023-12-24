@@ -3,7 +3,7 @@ import DiaryCard from './DiaryCard';
 import { useEffect, useState } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 import { db } from '../firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, query, orderBy } from 'firebase/firestore';
 
 const ShowDiaries = () => {
 
@@ -16,15 +16,20 @@ const ShowDiaries = () => {
     }, []);
 
     const getPosts = async () => {
-        const querySnapshot = await getDocs(collection(db, 'posts'));
+        const postData = collection(db, 'posts');
+        const orderData = query(postData, orderBy('timestamp', 'desc'));
+        //snapshot받아오기 전에 query
+        const querySnapshot = await getDocs(orderData);
         const fbData = querySnapshot.docs.map(doc => ({
             //포스트의 id 
             id : doc.id,
+            timestamp : doc.timestamp,
             ...doc.data(),
         }));
         setPosts(fbData);
         setLoading(false);
     };
+
 
 
     const renderDiaryCards = () => {

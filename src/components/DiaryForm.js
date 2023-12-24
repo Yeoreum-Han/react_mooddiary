@@ -2,7 +2,7 @@ import './DiaryForm.css';
 import Emotions from './Emotions';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { collection, addDoc, getDoc, doc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, getDoc, doc, updateDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 
 
@@ -28,7 +28,7 @@ const DiaryForm = ({ editing }) => {
                 title: title,
                 date: date,
                 mood: mood,
-                text: text 
+                text: text
             });
             navigate('/mydiaries');
         } else {
@@ -37,7 +37,8 @@ const DiaryForm = ({ editing }) => {
                 title: title,
                 date: date,
                 mood: mood,
-                text: text
+                text: text,
+                timestamp: Timestamp.now()
             });
             navigate('/mydiaries');
         }
