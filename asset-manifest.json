@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react_mooddiary/static/css/main.3a3bcd64.css",
-    "main.js": "/react_mooddiary/static/js/main.6d99cd6e.js",
+    "main.js": "/react_mooddiary/static/js/main.5679e811.js",
     "static/media/loadingSpinner.gif": "/react_mooddiary/static/media/loadingSpinner.5ca3da067f2edad66b16.gif",
     "index.html": "/react_mooddiary/index.html",
     "main.3a3bcd64.css.map": "/react_mooddiary/static/css/main.3a3bcd64.css.map",
-    "main.6d99cd6e.js.map": "/react_mooddiary/static/js/main.6d99cd6e.js.map"
+    "main.5679e811.js.map": "/react_mooddiary/static/js/main.5679e811.js.map"
   },
   "entrypoints": [
     "static/css/main.3a3bcd64.css",
-    "static/js/main.6d99cd6e.js"
+    "static/js/main.5679e811.js"
   ]
 }
