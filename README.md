@@ -1,7 +1,7 @@
 # moodDiary - 감정일기
 
 ## 소개
- 건강한 마음을 가지기 위해서는 자신의 감정을 돌아보고 명확히 표현할 수 있어야 합니다. 이 일기장은 감정표현이 어려운 사람들을 위해 기획했습니다. 여러 감정단어를 가이드로 제시하고, 한달간의 일기를 보여주며 자신에 대한 이해와, 스트레스 해소를 도와줍니다.
+ 건강한 마음을 가지기 위해서는 자신의 감정을 돌아보고 명확히 표현할 수 있어야 합니다. 이 [**일기장**](https://yeoreum-han.github.io/react_mooddiary)은 감정표현이 어려운 사람들을 위해 기획했습니다. 여러 감정단어를 가이드로 제시하고, 한달간의 일기를 보여주며 자신에 대한 이해와, 스트레스 해소를 도와줍니다.
 
 ## 기술스택
  * html5
@@ -14,10 +14,69 @@
 -- firebase Auth를 사용해 이메일과 비밀번호로 회원가입 및 로그인 기능을 구현했습니다. 에러코드에 따라 alert 메세지를 띄워 사용자에게 안내합니다.  
 -- 로그인 시 regCheckEmail, regCheckPwd 함수로 입력값의 유효성을 검사하면서 input의 색을 변경하도록 했습니다.  
 -- 또한 로그인 상태에 따라 일기 작성과 수정, 삭제기능이 제한됩니다.
+```js
+// 로그인 함수
+const login = () => {
+  const auth = getAuth();   // 이메일로 로그인 인증
+  signInWithEmailAndPassword(auth, loginInput.loginEmail, loginInput.loginPwd)
+  .then((userCredential)=>{
+    ...
+    setPersistence(auth, browserSessionPersistence)   // 인증 상태 지속성 -브라우저세션으로 설정
+        .then(() => {
+            return signInWithEmailAndPassword(auth, loginInput.loginEmail, loginInput.loginPwd);
+                    })
+        .catch((error) => {
+          ...
+        });
+    closeLogin();
+  })
+  .catch((error) => {     // 에러코드에 따라 alert 메시지
+    const errorCode = error.code;
+    switch (errorCode) {
+      case 'auth/invalid-email'
+          : return alert('이메일을 확인해주세요.');
+      case 'auth/missing-password'
+          : return alert('비밀번호를 작성해주세요.');
+      case 'auth/weak-password'
+          : return alert('비밀번호를 제대로 작성해주세요.');
+      case 'auth/network-request-failed'
+          : return '네트워크 연결에 실패했습니다.';
+      default
+          : return alert('로그인에 실패했습니다');
+                }
+  });
+}
+```
+```js
+const regCheckEmail = (e) => {
+    const regex = /[\w\-.]+@[\w-]+\.[\w]/g;
+    const validEmail = regex.test(e.target.value);
+    setIsLoginValid({ ...isLoginValid, isLoginEmailV: validEmail });    // boolean 타입의 isLoginValid 변수
+    setLoginInput({ ...loginInput, loginEmail: e.target.value });
+    if (e.target.value === '') {    // 빈칸일 경우
+      setIsLoginValid({ ...isLoginValid, isLoginEmailV: false });
+    }
+}
+```
 2. 일기 작성과 조회  
 -- 감정일기 작성에 도움이 되도록 긍정과 부정감정들을 예시로 제시했습니다.  
--- 항목이 빈칸인 채로 저장되지 않도록 alert 메세지로 사용자에게 안내합니다.  
 -- 저장후에는 나의 한 달 페이지로 넘어가면서 작성한 일기들을 볼 수 있습니다. 일기들은 내림차순으로 정렬했습니다. 
+```js
+const getPosts = async () => {
+  const postData = collection(db, 'posts');
+  const orderData = query(postData, orderBy('timestamp', 'desc'));
+  //snapshot받아오기 전에 query
+  const querySnapshot = await getDocs(orderData);
+  const fbData = querySnapshot.docs.map(doc => ({
+    //포스트의 id 
+      id : doc.id,
+      timestamp : doc.timestamp,
+      ...doc.data(),
+  }));
+  setPosts(fbData);
+  setLoading(false);
+};
+```
 
 ## 트러블슈팅
 1. 로그인 모달창  
