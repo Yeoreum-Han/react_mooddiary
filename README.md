@@ -1,20 +1,20 @@
 # moodDiary - 감정일기
 
-## 소개
-![md_mooddiary01](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/3e4de3b5-c359-4764-80f5-746fe82fb9c0)
- 건강한 마음을 가지기 위해서는 자신의 감정을 돌아보고 명확히 표현할 수 있어야 합니다. 이 [**일기장**](https://yeoreum-han.github.io/react_mooddiary)은 감정표현이 어려운 사람들을 위해 기획했습니다. 여러 <u>*감정단어*</u>를 가이드로 제시하고, 한달간의 일기를 보여주며 <u>*자신에 대한 이해*</u>와 <u>*스트레스 해소*</u>를 도와줍니다.
+## 🙋 소개
+![md_mooddiary01](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/3e4de3b5-c359-4764-80f5-746fe82fb9c0)  
+ 건강한 마음을 가지기 위해서는 자신의 감정을 돌아보고 명확히 표현할 수 있어야 합니다. 이 [**일기장**](https://yeoreum-han.github.io/react_mooddiary)은 감정표현이 어려운 사람들을 위해 기획했습니다. 여러 <ins>*감정단어*</ins>를 가이드로 제시하고, 한달간의 일기를 보여주며 <ins>*자신에 대한 이해*</ins>와 <ins>*스트레스 해소*</ins>를 도와줍니다.
 
-## 기술스택
+## 📖 기술스택
  * html5
  * css3
  * react 
  * firebases
 
-## 핵심기능  
+## 💡 핵심기능  
 1. 회원가입과 로그인  
-![md_mooddiary02](https://github.com/Yeoreum-Han/portfolio_sogong/assets/127937169/1ef2832f-3576-48f1-8559-7d64fc3d72ac)
-![md_mooddiary03](https://github.com/Yeoreum-Han/portfolio_sogong/assets/127937169/d9033f8d-7fe9-4917-85a7-9b8d089b5d29)
--- firebase Auth를 사용해 이메일과 비밀번호로 회원가입 및 로그인 기능을 구현했습니다. 에러코드에 따라 **alert 메세지**를 띄워 사용자에게 안내합니다.  
+![md_mooddiary02](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/4ae9a5af-105e-41f1-8255-7edba3741ace)
+![md_mooddiary03](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/fa02e26e-cb0c-4073-baa1-0e4983c36932)   
+-- firebase Auth를 사용해 이메일과 비밀번호로 **회원가입 및 로그인** 기능을 구현했습니다. 에러코드에 따라 **alert 메세지**를 띄워 사용자에게 안내합니다.  
 -- 로그인 시 regCheckEmail, regCheckPwd 함수로 입력값의 **유효성을 검사**하면서 input의 색을 변경하도록 했습니다.  
 -- 또한 **로그인 상태에 따라** 일기 작성과 수정, 삭제기능이 제한됩니다.
 ```js
@@ -61,9 +61,9 @@ const regCheckEmail = (e) => {
     }
 }
 ```
-2. 일기 작성과 조회
-![md_mooddiary04](https://github.com/Yeoreum-Han/portfolio_sogong/assets/127937169/7c2312ad-55c0-46a7-9d63-17c67b864b8c)
-![md_mooddiary05](https://github.com/Yeoreum-Han/portfolio_sogong/assets/127937169/3d7501c4-82af-49d6-b6d0-6fcce06d06c3)  
+2. 일기 작성과 조회  
+![md_mooddiary04](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/063a2666-89d7-45e1-a093-a61211025940)
+![md_mooddiary05](https://github.com/Yeoreum-Han/react_mooddiary/assets/127937169/f1010b7d-619f-44b1-a770-a6cd8e8933ae)  
 -- 감정일기 작성에 도움이 되도록 긍정과 부정감정들을 예시로 제시했습니다.  
 -- 저장후에는 나의 한 달 페이지로 넘어가면서 작성한 일기들을 볼 수 있습니다. 일기들은 **최신순**으로 정렬했습니다. 
 ```js
@@ -83,7 +83,7 @@ const getPosts = async () => {
 };
 ```
 
-## 트러블슈팅
+## 🤔 트러블슈팅
 1. 로그인 모달창  
 로그인창을 띄우고 배경 클릭 시 닫히는 기능을 만들고 싶었는데 로그인창 내부를 클릭하면 닫히고, 외부를 누르면 오류가 발생했다.  
 -> 이는 배경공간을 따로 만들지 않았기 때문에 발생한 일로 상위에 div를 추가하는 것으로 수정했다. 또한 **useRef**를 사용해 **클릭된 지점에 따라** closeLogin 함수를 실행하도록 코드를 작성해 해결했다. 
